@@ -14,6 +14,34 @@ h1 {
     cursor: pointer;
 }
 
+.nav-link {
+	font-size: 2em;
+	border: none;
+}
+
+
+.nav-link:hover{
+	border: none;
+}
+
+.nav-tabs:hover{
+	border:none;
+}
+
+a {
+	color: black;
+}
+
+a:hover{
+
+	border: none;
+	color: black;
+}
+
+a:active{
+	color: white;
+}
+
 #content{
 	margin-left: 20%;
 	margin-right: 20%;
@@ -65,4 +93,19 @@ img {
 	color: white;
 	font-weight: bold;
 	font-size: 50px;
-};
+}
+
+
+.selectedtab {  
+	color: white;
+	font-weight: bold;
+	font-size: 3em;
+	background-color: olive;
+}
+
+
+
+#leavingMessage {
+	font-size: 8em;
+	color: white;
+}

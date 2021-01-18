@@ -1,32 +1,46 @@
-const showText1 = () => {
-	let myParagraph = document.getElementById('tab-content');
-	let image = document.getElementsByTagName("img")[0];
-	image.src = "flowers.jpg";
-	myParagraph.innerHTML = "Imagine an interface where the only way to find out whether a key on the keyboard is being pressed is to read the current state of that key. To be able to react to keypresses, you would have to constantly read the key’s state so that you’d catch it before it’s released again. It would be dangerous to perform other time-intensive computations since you might miss a keypress."
+const showText1 = (e) => {
+	
+	let click = e.target.id[5];
+	let title1 = document.getElementById('link-1');
+	let title2 = document.getElementById('link-2');
+	let title3 = document.getElementById('link-3');
+	console.log(click)
+
+	if (click == 1) {
+		let myParagraph = document.getElementById('tab-content');
+		let image = document.getElementsByTagName("img")[0];
+		image.src = "flowers.jpg";
+		myParagraph.innerHTML = "Imagine an interface where the only way to find out whether a key on the keyboard is being pressed is to read the current state of that key. To be able to react to keypresses, you would have to constantly read the key’s state so that you’d catch it before it’s released again. It would be dangerous to perform other time-intensive computations since you might miss a keypress."
+		title1.classList.add("selectedtab");
+		title2.classList.remove("selectedtab");
+		title3.classList.remove("selectedtab");
+	}
+
+	else if (click == 2) {
+		let myParagraph = document.getElementById('tab-content');
+		let image = document.getElementsByTagName("img")[0];
+		let title = document.getElementById('link-2');
+		image.src = "bread.jpg";
+		myParagraph.innerHTML = "COUCOU. VOICI LE MEILLEUR PAIN DE FRANCE !!!!";
+		title2.classList.add("selectedtab");
+		title1.classList.remove("selectedtab");
+		title3.classList.remove("selectedtab");
+	}
+
+	else if (click == 3) {
+		document.removeEventListener('mouseout', mouseEvent);
+		document.removeEventListener('mouseout', mouseEvent);
+		let myParagraph = document.getElementById('tab-content');
+		let image = document.getElementsByTagName("img")[0];
+		image.src = "eggs.jpg";
+		myParagraph.innerHTML = generateMenu()
+		title3.classList.add("selectedtab");
+		title2.classList.remove("selectedtab");
+		title1.classList.remove("selectedtab");
+	}
+
+	
 };
-
-const showText2 = () => {
-	let myParagraph = document.getElementById('tab-content');
-	let image = document.getElementsByTagName("img")[0];
-	let title = document.getElementById('link-2');
-	image.src = "bread.jpg";
-	myParagraph.innerHTML = "COUCOU. VOICI LE MEILLEUR PAIN DE FRANCE !!!!";
-	title.style.color = "white"
-	title.style.backgroundColor = "olive"
-};
-
-
-
-const showText3 = () => {
-	document.removeEventListener('mouseout', mouseEvent);
-	document.removeEventListener('mouseout', mouseEvent);
-	let myParagraph = document.getElementById('tab-content');
-	let image = document.getElementsByTagName("img")[0];
-	image.src = "eggs.jpg";
-	myParagraph.innerHTML = generateMenu()
-};
-
-
 
 
 generateMenu = () => {
@@ -79,9 +93,13 @@ const redCross = () => {
 };
 
 
+
+
+
+
 document.getElementById('link-1').addEventListener("click", showText1);
-document.getElementById('link-2').addEventListener("click", showText2);
-document.getElementById('link-3').addEventListener("click", showText3);
+document.getElementById('link-2').addEventListener("click", showText1);
+document.getElementById('link-3').addEventListener("click", showText1);
 
 
 
@@ -94,7 +112,7 @@ setTimeout(() => {
     document.addEventListener('mouseout', mouseEvent);
     document.addEventListener('keydown', exit);
     document.getElementsByClassName('close')[0].addEventListener('mouseover', redCross);
-}, 10_000);
+}, 1_000);
 
 
 
@@ -104,6 +122,14 @@ setTimeout(() => {
 
 
 
+handleClick = (e) => {
+	console.log(e)
+}
 
 
+
+
+
+
+window.addEventListener("click", handleClick)
 
